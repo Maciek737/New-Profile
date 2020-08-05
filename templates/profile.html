@@ -1,0 +1,18 @@
+<h1>Create Profile Page</h1>
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Submit New Profile</button>
+</form>
+
+<h1>Profile Page</h1>
+<ul>
+  {% for profile in object_list %}
+    <h2>{{ profile.name }}</h2>
+    <img src="{{ profile.picture.url}}" alt="{{ profile.name }}">
+    <form action="http://localhost:8000/{{profile.id}}/update">
+        <input type="submit" value="Edit" />
+    </form>
+  {% endfor %}
+</ul>
+

@@ -1,0 +1,7 @@
+<h1>Profile Page</h1>
+<ul>
+  {% for profile in object_list %}
+    <h2>{{ profile.name }}</h2>
+    <img src="{{ profile.picture.url}}" alt="{{ profile.name }}">
+  {% endfor %}
+</ul>
